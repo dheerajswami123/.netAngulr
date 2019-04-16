@@ -1,0 +1,71 @@
+﻿<h2>Create</h2>
+<form class="form-horizontal" name="fromAddUser" ng-submit="createUser(user)" novalidate>
+    <h4>Create a new User</h4>
+    <hr/>
+
+    <div class="form-group">
+        <label class="col-lg-2 control-label">First Name</label>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" name="fname" ng-model="user.FirstName" maxlength="50"  ng-maxlength="50" required />
+            <span class="text-danger" ng-show="(fromAddUser.fname.$touched || fromAddUser.fname.$dirty) && fromAddUser.fname.$invalid">
+                <span ng-show="fromAddUser.fname.$error.required">First name is required</span>
+                <span ng-show="fromAddUser.fname.$error.maxlength">First name should not excced 50 characters</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Last Name</label>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" name="lname"  ng-model="user.LastName" ng-maxlength="50" required />
+            <span class="text-danger" ng-show="(fromAddUser.lname.$touched || fromAddUser.lname.$dirty) && fromAddUser.lname.$invalid">
+                <span ng-show="fromAddUser.lname.$error.required">Last name is required</span>
+                <span ng-show="fromAddUser.lname.$error.maxlength">Last name should not excced 50 characters</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Email</label>
+        <div class="col-lg-10">
+            <input type="email" class="form-control" name="email" ng-model="user.Email" ng-maxlength="100" required />
+            <span class="text-danger" ng-show="(fromAddUser.email.$touched || fromAddUser.email.$dirty) && fromAddUser.email.$invalid">
+                <span ng-show="fromAddUser.email.$error.required">Email is required</span>
+                <span ng-show="fromAddUser.email.$error.email">Please enter valid email</span>
+                <span ng-show="fromAddUser.email.$error.maxlength">Email should not excced 100 characters</span>
+            </span>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Password</label>
+        <div class="col-lg-10">
+            <input type="password" class="form-control" ng-model="user.Password" name="password" ng-maxlength="30" required />
+            <span class="text-danger" ng-show="(fromAddUser.password.$touched || fromAddUser.password.$dirty) && fromAddUser.password.$invalid">
+                <span ng-show="fromAddUser.password.$error.required">Password is required</span>
+               <span ng-show="fromAddUser.password.$error.maxlength">Password should not excced 30 characters</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Confirm Password</label>
+        <div class="col-lg-10">
+            <input type="password" class="form-control" name="confPassword" ng-model="user.ConfrimPassword" required />
+            <span class="text-danger" ng-show="(fromAddUser.confPassword.$touched || fromAddUser.confPassword.$dirty) && fromAddUser.confPassword.$invalid">
+                <span ng-show="fromAddUser.confPassword.$error.required">Confirm Password is required</span>
+                <span ng-show="fromAddUser.confPassword.$error.maxlength">Confirm Password should not excced 30 characters</span>
+            </span>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        
+        <div class="col-lg-10 col-lg-offset-2">
+            <input type="submit" class="btn btn-success" value="Create" ng-disabled="fromAddUser.$invalid" />
+            <a href="#/" class="btn btn-default" >Cancel</a>
+        </div>
+    </div>
+
+</form>
